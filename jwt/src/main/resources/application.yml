@@ -1,0 +1,28 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:sqlite:./db.sqlite3
+    driverClassName: org.sqlite.JDBC
+    user: ""
+    password: ""
+    hikari:
+      idle-timeout: 10000
+  jpa:
+    hibernate:
+      ddl-auto: none
+      temp:
+        use_jdbc_metadata_defaults: false
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    database-platform: com.enigmabridge.hibernate.dialect.SQLiteDialect
+  properties:
+    hibernate:
+      dialect: com.enigmabridge.hibernate.dialect.SQLiteDialect
+logging:
+  pattern:
+    console: "%d{HH:mm:ss} %highlight(%-5level) %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] [%-5level] %logger{36} - %msg%n"
+  level:
+    root: INFO
+    ksaito.practice.jwt: DEBUG
+    org.hibernate: ERROR
